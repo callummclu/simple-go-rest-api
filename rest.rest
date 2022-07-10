@@ -1,0 +1,26 @@
+### get one
+GET http://localhost:8000/api/getOne/1
+
+### create one
+POST http://localhost:8000/api/createOne
+Content-Type: application/json
+
+{
+    "id":3,
+    "name":"doc 3"
+}
+
+### edit one
+PATCH http://localhost:8000/api/editOne/2
+Content-Type: application/json
+
+{
+    "id":3,
+    "name":"new name"
+}
+ 
+### get all
+GET http://localhost:8000/api/getAll
+
+### delete one
+DELETE http://localhost:8000/api/deleteOne/3

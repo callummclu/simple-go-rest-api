@@ -1,25 +1,21 @@
 package main
 
 import (
-	"github.com/callummclu/simple-go-rest-api/controllers"
-	"github.com/callummclu/simple-go-rest-api/models"
+	"simple-go-rest-api/models"
+	"simple-go-rest-api/routes"
 
 	"github.com/gin-gonic/gin"
 )
 
+var Router *gin.Engine
+
 func main() {
-	r := gin.Default()
 
-	// Connect to database
-	models.ConnectDatabase()
+	var itemList = []models.Item{
+		{Id: 1, Name: "doc 1"},
+		{Id: 2, Name: "doc 2"},
+	}
 
-	// Routes
-	r.GET("/users", controllers.FindUsers)
-	r.GET("/users/:id", controllers.FindUser)
-	r.POST("/users", controllers.CreateUser)
-	r.PATCH("/users/:id", controllers.UpdateUser)
-	r.DELETE("/users/:id", controllers.DeleteUser)
-
-	// Run the server
-	r.Run()
+	routes.CreateUrlMappings(itemList)
+	routes.Router.Run(":8000")
 }
