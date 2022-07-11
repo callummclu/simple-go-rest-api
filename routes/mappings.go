@@ -32,10 +32,11 @@ func CreateUrlMappings(itemList []models.Item) {
 						"message": item,
 					})
 					return
+
 				}
 			}
 			c.JSON(404, gin.H{
-				"message": "not found",
+				"message": "'" + id + "' not found",
 			})
 		})
 
@@ -66,6 +67,9 @@ func CreateUrlMappings(itemList []models.Item) {
 					return
 				}
 			}
+			c.JSON(404, gin.H{
+				"message": "'" + id + "' not found",
+			})
 
 		})
 
@@ -84,6 +88,9 @@ func CreateUrlMappings(itemList []models.Item) {
 					return
 				}
 			}
+			c.JSON(404, gin.H{
+				"message": "'" + id + "' not found",
+			})
 		})
 
 	}
